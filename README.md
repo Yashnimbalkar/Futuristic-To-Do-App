@@ -1,8 +1,5 @@
-# Futuristic-To-Do-App
+# Futuristic-To-Do-App 🚀
 "A high-performance Futuristic To-Do List with real-time progress tracking, task reminders, and JSON Import/Export. Built with vanilla JS, featuring neon UI animations, dark mode, and smart priority sorting."
-
-# Futuristic To-Do App 🚀
-A sleek, neon-themed task management application designed with a futuristic UI and advanced productivity features. This app goes beyond basic list-making by offering dynamic sorting, progress tracking, and file portability.
 
 # ✨ Key Features
 Advanced Task Management: Create, edit, and delete tasks with ease. The edit mode intelligently loads existing data for quick modifications.

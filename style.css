@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e, #2e1a3c);
+    color: #e0e0ff;
+    transition: all 0.5s ease;
+}
+
+body.dark-mode {
+    background: linear-gradient(135deg, #0d0d1a, #1a0d2e);
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(116, 235, 213, 0.3);
+    width: 100%;
+    max-width: 700px;
+    margin: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #74ebd5;
+    text-shadow: 0 0 10px #74ebd5;
+}
+
+#themeToggle {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #e0e0ff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#themeToggle:hover {
+    transform: rotate(360deg);
+}
+
+.stats {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+progress {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+progress::-webkit-progress-value {
+    background: #74ebd5;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #74ebd5;
+}
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+select,
+input[type="file"] {
+    padding: 10px;
+    border: 2px solid #74ebd5;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #e0e0ff;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    box-shadow: 0 0 15px #74ebd5;
+    border-color: #acb6e5;
+    outline: none;
+}
+
+button {
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #74ebd5, #acb6e5);
+    border: none;
+    border-radius: 8px;
+    color: #1a1a2e;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+button:hover::before {
+    width: 200px;
+    height: 200px;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px #74ebd5;
+}
+
+.control-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(116, 235, 213, 0.2);
+    animation: slideIn 0.5s ease;
+}
+
+li.completed {
+    background: rgba(212, 237, 218, 0.2);
+    text-decoration: line-through;
+    color: #a0a0cc;
+}
+
+li.overdue {
+    border: 2px solid #ff6b6b;
+    box-shadow: 0 0 15px #ff6b6b;
+}
+
+.task-info {
+    flex: 1;
+}
+
+.task-text {
+    font-size: 1.2em;
+    color: #e0e0ff;
+}
+
+.task-meta {
+    font-size: 0.9em;
+    color: #acb6e5;
+}
+
+.priority-low { color: #28a745; }
+.priority-medium { color: #ffc107; }
+.priority-high { color: #ff6b6b; }
+
+.task-actions button {
+    margin-left: 10px;
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+.task-actions button.edit-btn {
+    background: #007bff;
+}
+
+.task-actions button.edit-btn:hover {
+    background: #0056b3;
+}
+
+.task-actions button.delete-btn {
+    background: #ff6b6b;
+}
+
+.task-actions button.delete-btn:hover {
+    background: #ff4d4d;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    input, select, button {
+        font-size: 0.9em;
+    }
+
+    .input-section, .control-section {
+        flex-direction: column;
+    }
+}
